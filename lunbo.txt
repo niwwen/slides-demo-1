@@ -1,0 +1,99 @@
+setTimeout(function() {
+    $('.images>img:nth-child(1)').css({
+            transform: 'translateX(-100%)'
+        }) //找到images下面的图片，加上css动画
+    $('.images>img:nth-child(2)').css({
+        transform: 'translateX(-100%)'
+    })
+    $('.images>img:nth-child(1)').one('transitionend', function(e) { //one代表只监听一次
+        //console.log(1)//动画结束后打印  0.5s
+        $(e.currentTarget).addClass('right').css({ transform: 'none' }) //把第一张放在最后去，消除transform
+    })
+}, 3000)
+
+setTimeout(function() {
+    $('.images>img:nth-child(2)').css({
+        transform: 'translateX(-200%)'
+    })
+    $('.images>img:nth-child(3)').css({
+        transform: 'translateX(-100%)'
+    })
+    $('.images>img:nth-child(2)').one('transitionend', function(e) {
+        $(e.currentTarget).addClass('right').css({ transform: 'none' })
+    })
+}, 6000)
+
+setTimeout(function() {
+    $('.images>img:nth-child(3)').css({
+        transform: 'translateX(-200%)'
+    })
+    $('.images>img:nth-child(1)').css({
+        transform: 'translateX(-100%)'
+    })
+    $('.images>img:nth-child(3)').one('transitionend', function(e) {
+        $(e.currentTarget).addClass('right').css({ transform: 'none' })
+    })
+}, 9000)
+
+setTimeout(function() {
+    $('.images>img:nth-child(1)').css({
+        transform: 'translateX(-200%)'
+    })
+    $('.images>img:nth-child(2)').css({
+        transform: 'translateX(-100%)'
+    })
+    $('.images>img:nth-child(1)').one('transitionend', function(e) {
+        $(e.currentTarget).addClass('right').css({ transform: 'none' })
+    })
+}, 12000)
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.window {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.images {
+    position: relative;
+}
+
+.images>img {
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.images>img:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.images>img:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+.images>img:nth-child(3) {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+.images>img.right {
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
